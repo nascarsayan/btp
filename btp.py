@@ -15,7 +15,6 @@ def download_file(rn):
     if len(rn) > 0 :
         dat = dat.split(rn)
         dat = dat[0]
-        print dat
     with open("Choices.csv", "wb") as f:
         f.write(dat)
     print "File written successfully"
@@ -208,10 +207,9 @@ def main():
     """
     print "Downloading..."
     rn = ""
-    print argv
     if len(argv) > 1:
+		# roll number below you is supplied, show btp alloc of all above you
         rn = '"%s"' % argv[1]
-        print rn
     download_file(rn)
     print "The file has been downloaded"
 
@@ -236,7 +234,7 @@ def main():
     showRemaining(projects, profs)
     now = datetime.datetime.now()
     print "Script ended on "+now.strftime("%A %d %B %Y %I:%M:%S %p %Z")
-
+    
 
 if __name__ == "__main__":
     main()
